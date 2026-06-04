@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سيرفر RTA | أندرويد VIP</title>
-    <!-- استيراد الخطوط الفاخرة للرموز والكتابة -->
+    <title>سيرفر RTA | أندرويد </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     
-    <!-- استخدام Tailwind CSS للمظهر الاحترافي السريع -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -85,16 +83,13 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between relative overflow-hidden">
+<body class="min-h-screen flex flex-col justify-between relative overflow-y-auto">
 
-    <!-- كتل الإضاءة المتحركة بالخلفية -->
     <div class="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-emerald-950 blur-[120px] pointer-events-none ambient-glow-1 -z-10"></div>
     <div class="absolute bottom-[-10%] left-[-10%] w-[550px] h-[550px] rounded-full bg-green-950 blur-[130px] pointer-events-none ambient-glow-2 -z-10"></div>
 
-    <!-- نظام الجزيئات المتحركة (تم توليدها برمجياً لعدم زيادة حجم الكود) -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none -z-10" id="particle-container"></div>
 
-    <!-- شاشة الترحيب المؤقتة (Splash Screen) -->
     <div id="splash-screen" class="fixed inset-0 bg-[#010803] z-[100] flex flex-col items-center justify-center p-6 transition-all duration-700 ease-in-out">
         <div class="relative text-center max-w-md w-full">
             <div class="absolute inset-0 bg-emerald-600/20 rounded-full blur-3xl animate-pulse"></div>
@@ -120,10 +115,8 @@
         </div>
     </div>
 
-    <!-- الهيكل الرئيسي للموقع بعد الدخول -->
     <div class="w-full flex flex-col justify-between min-h-screen">
         
-        <!-- الشريط العلوي (الهيدر) -->
         <header class="border-b border-emerald-950/60 bg-[#010803]/85 backdrop-blur-md sticky top-0 z-40">
             <div class="max-w-6xl mx-auto px-4 py-3 sm:py-4 flex items-center justify-between">
                 
@@ -146,7 +139,6 @@
             </div>
         </header>
 
-        <!-- المحتوى المركزي (Main) -->
         <main class="flex-1 flex flex-col justify-center items-center py-8 sm:py-12 px-4 w-full max-w-4xl mx-auto relative">
             
             <div class="relative mb-6">
@@ -170,10 +162,8 @@
                 <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-emerald-400 to-transparent mx-auto mt-5 rounded-full"></div>
             </div>
 
-            <!-- شبكة كروت الهاكات للأندرويد: Delta & Codex -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch justify-center w-full max-w-3xl px-2">
                 
-                <!-- هاك Delta -->
                 <div class="flex flex-col">
                     <div class="flex justify-between items-center mb-3 px-2">
                         <span class="text-xs text-emerald-400 font-black bg-emerald-950/40 border border-emerald-900/30 px-2 py-0.5 rounded">الها$ك المختار #1</span>
@@ -212,7 +202,6 @@
                     </div>
                 </div>
 
-                <!-- هاك Codex -->
                 <div class="flex flex-col">
                     <div class="flex justify-between items-center mb-3 px-2">
                         <span class="text-xs text-emerald-400 font-black bg-emerald-950/40 border border-emerald-900/30 px-2 py-0.5 rounded">الها$ك المختار #2</span>
@@ -253,7 +242,6 @@
             </div>
         </main>
 
-        <!-- التذييل (الفوتر) -->
         <footer class="w-full border-t border-emerald-950/60 bg-[#010502]/95 py-6 px-4">
             <div class="max-w-4xl mx-auto flex flex-col items-center gap-4">
                 
@@ -276,7 +264,6 @@
         </footer>
     </div>
 
-    <!-- برمجة حركات الموقع اللحظية -->
     <script>
         // إعداد تاريخ اليوم تلقائياً
         document.getElementById('current-year').innerText = new Date().getFullYear();
@@ -319,11 +306,13 @@
         function dismissSplash() {
             clearInterval(countInterval);
             const splash = document.getElementById('splash-screen');
-            splash.style.opacity = '0';
-            splash.style.transform = 'translateY(-20px)';
-            setTimeout(() => {
-                splash.style.display = 'none';
-            }, 700);
+            if(splash) {
+                splash.style.opacity = '0';
+                splash.style.transform = 'translateY(-20px)';
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                }, 700);
+            }
         }
     </script>
 </body>
