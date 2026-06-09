@@ -43,7 +43,7 @@
             50% { transform: scale(1.1) translate(20px, -20px); opacity: 0.25; }
         }
         @keyframes floatUp {
-            0 { transform: translateY(110vh) translateX(0) scale(0.6); opacity: 0; }
+            0% { transform: translateY(110vh) translateX(0) scale(0.6); opacity: 0; }
             10% { opacity: 0.6; }
             90% { opacity: 0.6; }
             100% { transform: translateY(-10vh) translateX(50px) scale(1); opacity: 0; }
@@ -90,6 +90,7 @@
 
     <div class="absolute inset-0 overflow-hidden pointer-events-none -z-10" id="particle-container"></div>
 
+    <!-- شاشة الانتظار Splash Screen -->
     <div id="splash-screen" class="fixed inset-0 bg-[#010803] z-[100] flex flex-col items-center justify-center p-6 transition-all duration-700 ease-in-out">
         <div class="relative text-center max-w-md w-full">
             <div class="absolute inset-0 bg-emerald-600/20 rounded-full blur-3xl animate-pulse"></div>
@@ -157,13 +158,14 @@
                     هنا سوف تجد جميع الـهاكات الخاصة بالاندرويد
                 </h2>
                 
-                <p class="text-xs text-slate-400 mt-2 font-medium max-w-md mx-auto">تنزيل مباشر وحماية فائقة متوافة مع جميع إصدارات نظام Android</p>
+                <p class="text-xs text-slate-400 mt-2 font-medium max-w-md mx-auto">تنزيل مباشر وحماية فائقة متوافق مع جميع إصدارات نظام Android</p>
 
                 <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-emerald-400 to-transparent mx-auto mt-5 rounded-full"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch justify-center w-full max-w-3xl px-2">
                 
+                <!-- كارد DELTA -->
                 <div class="flex flex-col">
                     <div class="flex justify-between items-center mb-3 px-2">
                         <span class="text-xs text-emerald-400 font-black bg-emerald-950/40 border border-emerald-900/30 px-2 py-0.5 rounded">الهاك المختار #1</span>
@@ -195,13 +197,14 @@
                                 <div class="flex items-center gap-2 p-2 rounded-xl bg-emerald-950/20 border border-emerald-900/20 text-xs font-bold text-slate-200">مفتاح سهل ✅</div>
                             </div>
 
-                            <a id="delta-download-link" href="https://release-assets.githubusercontent.com/github-production-release-asset/689989455/b4d0f38e-c39c-4ad7-840d-7034518837aa" target="_blank" rel="noopener noreferrer" class="w-full text-center py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg transition-all duration-300 border border-emerald-400/20 mt-3">
+                            <a id="delta-download-link-🟨🟨🟨🟨🟨🟨🟨" href="#" target="_blank" rel="noopener noreferrer" class="w-full text-center py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg transition-all duration-300 border border-emerald-400/20 mt-3">
                                 <span>تثبيت Delta مباشر (APK)</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
+                <!-- كارد ARCEUS -->
                 <div class="flex flex-col">
                     <div class="flex justify-between items-center mb-3 px-2">
                         <span class="text-xs text-emerald-400 font-black bg-emerald-950/40 border border-emerald-900/30 px-2 py-0.5 rounded">الهاك المختار #2</span>
@@ -232,7 +235,7 @@
                                 <div class="flex items-center gap-3 p-2.5 rounded-xl bg-emerald-950/20 border border-emerald-900/20 text-xs sm:text-sm font-black text-slate-200">يمكنك بحث السكربتات ✅</div>
                             </div>
 
-                            <a id="arceus-download-link" href="https://release-assets.githubusercontent.com/github-production-release-asset/689989455/9702dae4-3a17-4f35-a81b-4c9637638dba" target="_blank" rel="noopener noreferrer" class="w-full text-center py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg transition-all duration-300 border border-emerald-400/20 mt-3">
+                            <a id="arceus-download-link-🟥🟥🟥🟥" href="#" target="_blank" rel="noopener noreferrer" class="w-full text-center py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg transition-all duration-300 border border-emerald-400/20 mt-3">
                                 <span>تثبيت Arceus مباشر (APK)</span>
                             </a>
                         </div>
@@ -264,7 +267,50 @@
         </footer>
     </div>
 
+    <!-- التحكم البرمجي والسحابي الذكي المربوط بـ Gist الخاص بك -->
     <script>
+        // رابط البيانات السحابية الخاص بك جاهز ومحقون بنجاح بالـ ID حقك
+        const CONFIG_URL = "https://gist.githubusercontent.com/raw/bdcc249af49a22afee0dc64d32d8a577/rta_config.json"; 
+
+        async function checkHacks() {
+            try {
+                // منع التخزين المؤقت (Cache) لضمان جلب البيانات فور تغييرها من لوحة التحكم
+                const response = await fetch(CONFIG_URL + '?nocache=' + new Date().getTime());
+                const config = await response.json();
+                
+                // فحص وتحكم هاك Delta
+                const deltaBtn = document.getElementById('delta-download-link-🟨🟨🟨🟨🟨🟨🟨');
+                if (config.delta_status === true) {
+                    deltaBtn.href = config.delta_link;
+                    deltaBtn.className = "w-full text-center py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg transition-all duration-300 border border-emerald-400/20 mt-3";
+                    deltaBtn.innerHTML = "<span>تثبيت Delta مباشر (APK)</span>";
+                } else {
+                    disableButton(deltaBtn, "تثبيت Delta (متوقف مؤقتاً) ❌");
+                }
+
+                // فحص وتحكم هاك Arceus
+                const arceusBtn = document.getElementById('arceus-download-link-🟥🟥🟥🟥');
+                if (config.arceus_status === true) {
+                    arceusBtn.href = config.arceus_link;
+                    arceusBtn.className = "w-full text-center py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg transition-all duration-300 border border-emerald-400/20 mt-3";
+                    arceusBtn.innerHTML = "<span>تثبيت Arceus مباشر (APK)</span>";
+                } else {
+                    disableButton(arceusBtn, "تثبيت Arceus (متوقف مؤقتاً) ❌");
+                }
+
+            } catch (e) { 
+                console.log("فشل الاتصال البرمجي باللوحة السحابية."); 
+            }
+        }
+
+        // دالة تحويل الأزرار للوضع المعطل تلقائياً في حال الإغلاق من لوحة التحكم
+        function disableButton(btnElement, text) {
+            btnElement.removeAttribute('href');
+            btnElement.innerHTML = `<span>${text}</span>`;
+            btnElement.className = "w-full text-center py-3.5 px-4 rounded-xl bg-red-950/40 text-slate-500 font-extrabold text-sm flex items-center justify-center gap-2 border border-red-900/20 mt-3 cursor-not-allowed pointer-events-none";
+        }
+
+        // إعدادات الواجهة الرسومية وتحديث السنة تلقائياً
         document.getElementById('current-year').innerText = new Date().getFullYear();
 
         const container = document.getElementById('particle-container');
@@ -272,18 +318,12 @@
         for (let i = 0; i < particleCount; i++) {
             const particle = document.createElement('div');
             particle.classList.add('particle');
-            
             const size = Math.random() * 6 + 4;
-            const left = Math.random() * 100;
-            const delay = Math.random() * 10;
-            const duration = Math.random() * 12 + 10;
-
             particle.style.width = size + 'px';
             particle.style.height = size + 'px';
-            particle.style.left = left + '%';
-            particle.style.animation = `floatUp ${duration}s linear infinite`;
-            particle.style.animationDelay = `${delay}s`;
-
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animation = `floatUp ${Math.random() * 12 + 10}s linear infinite`;
+            particle.style.animationDelay = `${Math.random() * 10}s`;
             container.appendChild(particle);
         }
 
@@ -295,19 +335,18 @@
             }
         }, 800);
 
-        setTimeout(() => {
-            dismissSplash();
-        }, 2500);
+        setTimeout(() => { dismissSplash(); }, 2500);
 
         function dismissSplash() {
             clearInterval(countInterval);
             const splash = document.getElementById('splash-screen');
             splash.style.opacity = '0';
             splash.style.transform = 'translateY(-20px)';
-            setTimeout(() => {
-                splash.style.display = 'none';
-            }, 700);
+            setTimeout(() => { splash.style.display = 'none'; }, 700);
         }
+
+        // تشغيل فحص وإدارة الأزرار السحابية فوراً عند فتح الزائر للموقع
+        checkHacks();
     </script>
 </body>
 </html>
